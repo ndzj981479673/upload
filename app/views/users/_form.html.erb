@@ -34,6 +34,13 @@
     <%= f.text_field :classification %>
   </div>
   
+  <div class="field">
+  	<%= f.label :recommend%>	
+  	<%= radio_button_tag( "user[recommend]", "true") %>
+	<%= label_tag(:age_child, "yes") %>
+	<%= radio_button_tag("user[recommend", "false",true) %>
+	<%= label_tag(:age_adult, "no") %>
+  </div>
    <div class="field">
    	<%= f.label :image%><br/>  
    <%= f.file_field :image%>

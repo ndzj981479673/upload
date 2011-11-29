@@ -22,8 +22,12 @@
 </p>
 
 <p>
+	<b>Recommend:</b>
+	<%= @user.recommend%>
+	</p>
+<p>
   <b>Group:</b>
-  <%= Group.find(@user.group_id).name %>
+  <%= link_to Group.find(@user.group_id).name , Group.find(@user.group_id) %>
 </p><br/>
 
 

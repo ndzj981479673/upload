@@ -35,14 +35,15 @@
      <% f.fields_for :users do |user| %>
         
           <% unless user.object.new_record? %>
-        
+                
                 <div class="thumbnail">
-                        <%= link_to( image_tag(user.object.image.url(:thumb)), user.object.image.url(:original) ) %>
-                        <%= user.check_box :_destroy %>delete
+                         <%= link_to( image_tag(user.object.image.url(:thumb)), user.object.image.url(:original) ) %>
+                        <%@user = user%>
+                        <%= user.check_box :_destroy %>delete          <%= link_to 'Edit' , edit_user_path(user.object)%>
+
                 </div>
                 
           <% end %>        
-        
      <% end %>
 </div>
 

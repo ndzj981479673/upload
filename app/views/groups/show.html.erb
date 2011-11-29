@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+All Images in  Group
 <p>
-  <b>Name:</b>
+  <b>Group Name:</b>
   <%= @group.name %>
 </p>
 
@@ -13,7 +13,7 @@
 	</tr>
 <% @users.each do |user|%>
 <tr>
-	<td>user.id</td>
+	<td><%= user.id %></td>
 	<td><%= image_tag user.image.url(:thumb) %><br/></td>
 	<td><%= link_to 'Edit',edit_user_path(user) %></td>
 	<%end%>
@@ -22,5 +22,6 @@
 
 </table>
 <br/>
+Group
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

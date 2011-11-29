@@ -13,7 +13,7 @@
 <% @users.each do |user| %>
   <tr>
   	<td><%= user.id%></>
-  	<td><%= Group.find(user.group_id).name %></td>
+  	<td><%= link_to Group.find(user.group_id).name , Group.find(user.group_id)%></td>
   	<td><%= image_tag user.image.url(:thumb) %></td>
 
     <td><%= link_to 'Show', user %></td>
