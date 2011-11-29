@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+</p>
+
+<table>
+	<tr>
+		<th>PID</th>
+		<th>Image</th>
+		<th></th>
+	</tr>
+<% @users.each do |user|%>
+<tr>
+	<td>user.id</td>
+	<td><%= image_tag user.image.url(:thumb) %><br/></td>
+	<td><%= link_to 'Edit',edit_user_path(user) %></td>
+	<%end%>
+</tr>
+
+
+</table>
+<br/>
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

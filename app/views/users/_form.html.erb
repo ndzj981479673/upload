@@ -1,0 +1,47 @@
+<%= form_for @user ,:html => {:multipart => true }  do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+   </div>
+   
+     Choose Group <%= select("user", "group_id", Group.all.collect {|p| [ p.name, p.id ] }, {:include_blank => false})%>
+     |  <%= link_to 'new group' , new_group_path  %>   
+ 
+      <br/>
+       
+       
+    <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description , :size => "26x10"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :classification %><br />
+    <%= f.text_field :classification %>
+  </div>
+  
+   <div class="field">
+   	<%= f.label :image%><br/>  
+   <%= f.file_field :image%>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+   
