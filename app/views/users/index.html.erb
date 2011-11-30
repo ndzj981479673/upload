@@ -3,8 +3,10 @@
 <table>
   <tr>
   	<th>PID</th>
+  	<th>Image</th>
+  	<th>Title</th>
   	<th>Group</th>
-    <th>Image</th>
+   <th>Recomend</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,9 +15,10 @@
 <% @users.each do |user| %>
   <tr>
   	<td><%= user.id%></>
-  	<td><%= link_to Group.find(user.group_id).name , Group.find(user.group_id)%></td>
   	<td><%= image_tag user.image.url(:thumb) %></td>
-
+  	<td><%= user.title%></td>
+  	<td><%= link_to Group.find(user.group_id).name , Group.find(user.group_id)%></td>
+  	<td><%= user.recommend%>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -25,4 +28,6 @@
 
 <br />
 
+<p> <%= will_paginate @users%>
+	<br/>
 <%= link_to 'New Image', new_user_path %>

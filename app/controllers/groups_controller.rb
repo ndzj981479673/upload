@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.xml
   def index
-    @groups = Group.all
+    #@groups = Group.all
+    @groups = Group.paginate :page=>params[:page] , :order => 'created_at desc' , :per_page => 10
   #  @users =  User.where(:group_id => @group.id)
     respond_to do |format|
       format.html # index.html.erb
